@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ankitha V — Computer Science & AI Engineer. AI, software engineering, research, cybersecurity and full-stack projects.">
+<title>Ankitha V — Computer Science & AI Engineer</title>
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#17191d; --muted:#68707d;
+  --line:#e5e7eb; --accent:#315efb; --accent-soft:#eef3ff;
+  --dark:#17191d; --shadow:0 12px 35px rgba(23,25,29,.07);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(246,247,249,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,231,235,.8)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:850;letter-spacing:-.03em}.brand span{color:var(--accent)}
+.links{display:flex;align-items:center;gap:25px;color:#59616d;font-size:.88rem;font-weight:650}
+.links a{transition:.2s}.links a:hover{color:var(--accent)}
+.menu{display:none;border:0;background:none;font-size:1.35rem;cursor:pointer}
+.hero{padding:142px 0 88px;background:radial-gradient(circle at 78% 25%,#eaf0ff 0,transparent 29%),linear-gradient(180deg,#fff 0,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:70px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:850}
+.eyebrow:before{content:"";width:24px;height:1px;background:var(--accent)}
+h1{font-size:clamp(3.4rem,7vw,6.2rem);line-height:.94;letter-spacing:-.07em;margin-top:18px;max-width:720px}
+h1 span{color:var(--accent)}
+.hero-sub{font-size:1.08rem;color:var(--muted);max-width:680px;margin:25px 0 30px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;font-weight:750;font-size:.88rem;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.hero-card{background:var(--dark);color:#fff;border-radius:24px;padding:30px;box-shadow:0 24px 60px rgba(23,25,29,.14)}
+.hero-card .small{font-size:.7rem;text-transform:uppercase;letter-spacing:.16em;color:#9ca5b3;font-weight:800}
+.hero-card h2{font-size:1.8rem;line-height:1.15;letter-spacing:-.04em;margin:13px 0 12px}
+.hero-card p{color:#c2c9d3;font-size:.91rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.stat{border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:13px}
+.stat strong{display:block;font-size:1.25rem}.stat span{font-size:.72rem;color:#9ca5b3}
+section{padding:82px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.kicker{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:850}
+h2{font-size:2.25rem;line-height:1.1;letter-spacing:-.045em;margin-top:5px}
+.section-head>p{max-width:500px;color:var(--muted);font-size:.92rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 5px 20px rgba(23,25,29,.025)}
+.panel p{color:var(--muted);font-size:.94rem}
+.panel p+p{margin-top:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{padding:6px 10px;border-radius:999px;background:#f3f4f6;color:#4f5662;font-size:.76rem;font-weight:700}
+.timeline{position:relative;display:grid;gap:12px}
+.experience{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:23px 24px;background:#fff;border:1px solid var(--line);border-radius:15px}
+.experience:hover,.project:hover,.hack:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.experience,.project,.hack{transition:.2s}
+.date{color:var(--accent);font-size:.77rem;font-weight:800}
+.experience h3{font-size:1rem;margin-bottom:5px}.experience p{color:var(--muted);font-size:.87rem}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.project{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:27px;position:relative}
+.project .type{font-size:.68rem;color:var(--accent);font-weight:850;letter-spacing:.1em;margin-bottom:10px}
+.project h3{font-size:1.1rem;letter-spacing:-.02em}.project p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}.tag{font-size:.68rem;background:var(--accent-soft);color:#3555bb;padding:5px 8px;border-radius:6px;font-weight:750}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.skill{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.skill h3{font-size:.94rem}.skill p{color:var(--muted);font-size:.8rem;margin-top:6px}
+.research{display:grid;grid-template-columns:1fr 230px;gap:25px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+.research h3{font-size:1.18rem;letter-spacing:-.02em}.research p{color:var(--muted);font-size:.88rem;margin-top:8px}.research-meta{border-left:1px solid var(--line);padding-left:24px}.research-meta strong{display:block;font-size:.82rem}.research-meta span{font-size:.74rem;color:var(--muted)}
+.hackathons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hack{background:#fff;border:1px solid var(--line);border-radius:15px;padding:21px;display:grid;grid-template-columns:42px 1fr;gap:15px}
+.hack-num{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:850;font-size:.78rem}
+.hack h3{font-size:.94rem}.hack p{font-size:.8rem;color:var(--muted);margin-top:4px}
+.recognition{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.list{list-style:none}.list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:.84rem;color:var(--muted)}.list li:last-child{border-bottom:0}
+.contact-wrap{padding-top:10px}.contact{background:var(--dark);color:#fff;border-radius:24px;padding:58px 35px;text-align:center}
+
+.contact .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.contact .btn:not(.primary){background:#fff;border-color:#fff;color:var(--dark)}
+.contact .btn:hover{box-shadow:0 8px 24px rgba(0,0,0,.18)}
+
+.contact h2{font-size:2.7rem}.contact p{color:#bbc2cc;max-width:620px;margin:11px auto 24px;font-size:.9rem}.contact .btn{margin:4px}
+footer{padding:30px 0;color:#7a818c;text-align:center;font-size:.76rem}
+@media(max-width:850px){
+ .hero-grid,.about-grid,.recognition,.research{grid-template-columns:1fr}.grid-2,.hackathons{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}
+ .research-meta{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}.links{display:none}.links.open{display:flex;position:absolute;top:70px;left:0;right:0;background:#fff;padding:18px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+ .menu{display:block}.section-head{align-items:flex-start;flex-direction:column;gap:10px}.experience{grid-template-columns:1fr;gap:7px}
+}
+@media(max-width:560px){
+ h1{font-size:3.25rem}.skills{grid-template-columns:1fr}section{padding:65px 0}.hero{padding-top:120px}.contact{padding:42px 18px}.contact h2{font-size:2.15rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav">
+    <a class="brand" href="#home">ANKITHA <span>V</span></a>
+    <button class="menu" onclick="document.querySelector('.links').classList.toggle('open')" aria-label="Open menu">☰</button>
+    <div class="links">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
+      <a href="#research">Research</a><a href="#hackathons">Hackathons</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Computer Science & AI Engineer</div>
+      <h1>I build <span>useful</span> technology.</h1>
+      <p class="hero-sub">I'm Ankitha V, a final-year Computer Science & Engineering (Artificial Intelligence) student interested in AI, software engineering, backend systems, cybersecurity, research and building products that solve real problems.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=ankithaviprada626@gmail.com" target="_blank" rel="noopener noreferrer">Contact me</a>
+        <a class="btn" href="https://github.com/Ankitha-viprada" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="small">Currently</div>
+      <h2>Learning, building and shipping.</h2>
+      <p>My work sits at the intersection of AI and practical software engineering — from agentic systems and ML to APIs, full-stack applications and security.</p>
+      <div class="stats">
+        <div class="stat"><strong>9.1</strong><span>CGPA / 10</span></div>
+        <div class="stat"><strong>6+</strong><span>Featured projects</span></div>
+        <div class="stat"><strong>4</strong><span>Experiences</span></div>
+        <div class="stat"><strong>4</strong><span>Hackathons</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section id="about">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">01 / About</div><h2>Broad by choice.</h2></div><p>I keep this portfolio universal because my interests span several areas of computer science rather than one narrow role.</p></div>
+  <div class="about-grid">
+    <div class="panel">
+      <p>I enjoy understanding how systems work and then building them myself. My recent work includes an agentic AI debugger, an AI-powered tourist safety platform, an intrusion detection system, phishing detection, inventory management and a blockchain-enabled attendance system.</p>
+      <p>I'm looking for opportunities where I can learn quickly, work with strong engineering teams and turn ideas into reliable software.</p>
+    </div>
+    <div class="panel">
+      <strong>Areas I enjoy</strong>
+      <div class="pills">
+        <span class="pill">Artificial Intelligence</span><span class="pill">Generative AI</span><span class="pill">Agentic AI</span>
+        <span class="pill">Machine Learning</span><span class="pill">Python</span><span class="pill">Backend</span>
+        <span class="pill">Full Stack</span><span class="pill">Cybersecurity</span><span class="pill">Cloud</span>
+        <span class="pill">APIs</span><span class="pill">Databases</span><span class="pill">Research</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">02 / Experience</div><h2>Where I've worked and contributed.</h2></div></div>
+  <div class="timeline">
+    <article class="experience"><div class="date">May 2026 — Present</div><div><h3>Google Student Ambassador Intern — Communique Marketing Solutions</h3><p>Drove Google Gemini adoption across 200+ students, executed 3 outreach campaigns with approximately 40% increased trial sign-ups, and coordinated teams of 8–12 members.</p></div></article>
+    <article class="experience"><div class="date">Dec 2025 — Jan 2026</div><div><h3>Python Development Intern — ShadowFox</h3><p>Developed Python automation solutions, integrated 3 third-party REST APIs, and built applications including a web scraper using Requests and BeautifulSoup.</p></div></article>
+    <article class="experience"><div class="date">Mar 2025 — Apr 2025</div><div><h3>Full Stack Web Development Trainee — Blend Vidya EdTech</h3><p>Developed 2 responsive web applications using reusable React components and achieved page load times below 2 seconds.</p></div></article>
+    <article class="experience"><div class="date">IEEE VTS · BITM</div><div><h3>Webmaster — IEEE VTS Student Branch</h3><p>Built and maintained the website for Neo Nexus 36.1, a 36-hour national-level hackathon at BITM, and supported the ICDCECE-2026 event.</p></div></article>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">03 / Projects</div><h2>Things I've built.</h2></div><p>Selected work across AI, software engineering, security, full-stack development, geospatial systems and blockchain.</p></div>
+  <div class="grid-2">
+    <article class="project"><div class="type">INFINEON · AGENTIC AI</div><h3>Agentic AI Debugger with MCP Server</h3><p>Developed a developer-facing agentic debugging system for Infineon that analyzes programming errors, retrieves relevant code context, explains the root cause in simple terms, and proposes corrected code. The architecture uses MCP/FastMCP with specialized agents, LlamaIndex, Hugging Face embeddings and vector retrieval, with Python communication over SSE.</p><div class="tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">FastMCP</span><span class="tag">LlamaIndex</span><span class="tag">RAG</span></div></article>
+    <article class="project"><div class="type">SMART INDIA HACKATHON · TEAM LEAD</div><h3>Smart Tourist Safety Monitoring</h3><p>Led the development of an AI-powered tourist safety and incident-response platform for Smart India Hackathon. The system combines React Native, Node.js/Express, YOLOv8/OpenCV, PostgreSQL/PostGIS and Solidity/Hardhat to support real-time incident detection, geospatial queries, geo-fencing and blockchain-backed digital identity.</p><div class="tags"><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">Node.js</span><span class="tag">PostGIS</span></div></article>
+    <article class="project"><div class="type">MACHINE LEARNING · CYBERSECURITY</div><h3>Intrusion Detection System</h3><p>Built a machine-learning intrusion detection system for network traffic using Python, Scikit-learn and CICIDS data. Implemented Random Forest and SVM models for attack classification and connected the detection workflow to a monitoring dashboard, reaching 97.3% detection accuracy, less than 2% false positives and approximately 8,000 events/sec.</p><div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">CICIDS</span><span class="tag">Security</span></div></article>
+    <article class="project"><div class="type">FULL STACK · CYBERSECURITY</div><h3>Phishing Detection Platform</h3><p>Developed a web-based phishing detection platform with React on the frontend and Flask/REST APIs on the backend. Designed the user workflow for submitting and evaluating suspicious links, integrated the detection service with the interface, and reduced the decision time from approximately 12 seconds to 4 seconds through workflow optimization.</p><div class="tags"><span class="tag">React</span><span class="tag">Flask</span><span class="tag">REST APIs</span></div></article>
+    <article class="project"><div class="type">AI · BLOCKCHAIN · GEOLOCATION</div><h3>AI Blockchain Geo-Fenced Attendance</h3><p>Designed an AI-powered, blockchain-enabled geo-fenced attendance system to strengthen identity and location validation. The solution combines AI-based verification, GPS/geofencing and blockchain-backed attendance records, detecting 100% of simulated spoofed check-ins and designed to support 500+ users without architectural redesign.</p><div class="tags"><span class="tag">AI</span><span class="tag">Blockchain</span><span class="tag">GPS</span></div></article>
+    <article class="project"><div class="type">BACKEND · DATABASES</div><h3>Inventory Management System</h3><p>Built a backend-focused inventory management system using Node.js and MongoDB for product, stock and CRUD operations. Designed the data layer and API workflow for a catalog of more than 10,000 SKUs, with sub-100ms CRUD response times in testing and a structure suitable for extending the system with additional inventory workflows.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Backend</span></div></article>
+  </div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">04 / Skills</div><h2>My toolbox.</h2></div></div>
+  <div class="skills">
+    <div class="skill"><h3>AI & Generative AI</h3><p>Generative AI · LLMs · Agentic AI · MCP · FastMCP · LlamaIndex · RAG · Embeddings · Vector Retrieval · NLP</p></div>
+    <div class="skill"><h3>Machine Learning</h3><p>Scikit-learn · TensorFlow · NumPy · Pandas · OpenCV · YOLOv8 · Machine Learning</p></div>
+    <div class="skill"><h3>Languages &amp; Development</h3><p>Python · Java · C++ · C · JavaScript · HTML · Visual Basic · SQL</p></div>
+    <div class="skill"><h3>Web & Backend</h3><p>React · React Native · FastAPI · Flask · Node.js · Express.js · REST APIs</p></div>
+    <div class="skill"><h3>Databases</h3><p>PostgreSQL · PostGIS · MySQL · MongoDB</p></div>
+    <div class="skill"><h3>Cloud & Tools</h3><p>AWS · Docker · Git · GitHub · VS Code · Jupyter</p></div>
+  </div>
+</div>
+</section>
+
+<section id="research">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">05 / Research</div><h2>Publication.</h2></div></div>
+  <article class="research">
+    <div>
+      <div class="kicker">IJSRED · MAY–JUNE 2026</div>
+      <h3>AI-Powered Blockchain-Enabled Geo-Fenced Smart Attendance System</h3>
+      <p>Published in the International Journal of Scientific Research and Engineering Development (IJSRED), Volume 9, Issue 3, Part 4. The work explores AI, blockchain and geo-fencing for secure and tamper-resistant attendance management.</p>
+      <p><strong>Paper ID:</strong> IJSRED-V9I3P39 · <strong>ISSN:</strong> 2581-7175</p>
+      <div class="actions" style="margin-top:16px"><a class="btn primary" href="https://www.ijsred.com/volume9-issue3-part4.html" target="_blank" rel="noopener noreferrer">View published paper ↗</a></div>
+    </div>
+    <div class="research-meta"><strong>Published</strong><span>May–June 2026</span><br><strong style="margin-top:14px">Journal</strong><span>IJSRED</span></div>
+  </article>
+</div>
+</section>
+
+<section id="hackathons">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">06 / Hackathons</div><h2>Competitions & innovation.</h2></div><p>Four hackathon experiences spanning AI, cybersecurity, intelligent systems and national-level innovation.</p></div>
+  <div class="hackathons">
+    <article class="hack"><div class="hack-num">01</div><div><h3>Smart India Hackathon — Top 30 Finalist</h3><p>Smart Tourist Safety Monitoring & Incident Response System · Team Lead</p></div></article>
+    <article class="hack"><div class="hack-num">02</div><div><h3>Circuit Avishkar International Hackathon — Finalist</h3><p>Infineon Technologies · Agentic AI Debugger</p></div></article>
+    <article class="hack"><div class="hack-num">03</div><div><h3>CyberSecure National-Level Hackathon — Finalist</h3><p>National-level cybersecurity competition</p></div></article>
+    <article class="hack"><div class="hack-num">04</div><div><h3>Solaris X Grand Hackathon — Luminus 2026</h3><p>24-hour national-level hackathon · MCP-Based Systems — Engineering Intelligent Systems</p></div></article>
+  </div>
+</div>
+</section>
+
+<section id="recognition">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">07 / Recognition</div><h2>Certifications & leadership.</h2></div></div>
+  <div class="recognition">
+    <div class="panel"><ul class="list">
+      <li><strong>ServiceNow Certified Application Developer (CAD)</strong> — July 2026</li>
+      <li><strong>ServiceNow Certified System Administrator (CSA)</strong> — June 2026</li>
+      <li><strong>AWS Cloud Quest: Cloud Practitioner</strong> — April 2026</li>
+    </ul></div>
+    <div class="panel"><ul class="list">
+      <li><strong>Webmaster</strong> — IEEE VTS Student Branch, BITM</li>
+      <li><strong>Google Student Ambassador</strong> — Communique Marketing Solutions</li>
+      <li><strong>Research Publication</strong> — IJSRED, May–June 2026</li>
+    </ul></div>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="contact-wrap">
+<div class="container">
+  <div class="contact">
+    <div class="eyebrow" style="color:#aabaff">08 / Contact</div>
+    <h2>Let's build something useful.</h2>
+    <p>I'm open to meaningful engineering opportunities, collaborative projects, AI applications and new things to learn.</p>
+    <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=ankithaviprada626@gmail.com" target="_blank" rel="noopener noreferrer">Email me ↗</a>
+    <a class="btn" href="https://www.linkedin.com/in/ankitha-viprada-8b2a7327a/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/Ankitha-viprada" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</div>
+</section>
+
+<footer>© 2026 Ankitha V · Computer Science & AI Engineer</footer>
+</body>
+</html>
